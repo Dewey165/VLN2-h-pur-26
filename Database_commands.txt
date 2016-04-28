@@ -1,0 +1,69 @@
+
+CREATE DATABASE hopur26;
+
+CREATE TABLE users
+(
+ id int NOT NULL UNIQUE,
+ kennitala int NOT NULL, 
+ email varchar(255) NOT NULL,
+ role int
+);
+
+CREATE TABLE course
+(
+ id int NOT NULL UNIQUE,
+ name varchar(255) NOT NULL,
+ description varchar(255)
+);
+
+CREATE TABLE courseManager
+(
+ userID int,
+ courseID int,
+ role int
+);
+
+CREATE TABLE assignmentManager
+(
+ assignmentID int,
+ userID int,
+ role int
+);
+
+CREATE TABLE assignments
+(
+ id int NOT NULL UNIQUE,
+ courseID int NOT NULL,
+ name varchar(255) NOT NULL,
+ grade int NOT NULL,
+ timeSubmitted TIMESTAMP,
+ dueDate TIMESTAMP
+);
+
+CREATE TABLE solutions
+(
+ id int not NULL UNIQUE,
+ courseID int NOT NULL, 
+ assignID int NOT NULL, 
+ input varchar(255),
+ output varchar(255)
+);
+
+CREATE TABLE submittedSolutions
+(
+ id int NOT NULL UNIQUE,
+ courseID int NOT NULL, 
+ assignID int NOT NULL, 
+ userID int NOT NULL,
+ output varchar(255),
+ correct boolean
+ );
+ 
+CREATE TABLE solutionHistory
+(
+ id int NOT NULL UNIQUE,
+ assignID int NOT NULL,
+ courseID int NOT NULL,
+ userID int NOT NULL,
+ grade int NOT NULL
+);
