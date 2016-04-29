@@ -3,6 +3,7 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
+using Mooshak26.Models.Entities;
 
 namespace Mooshak26.Models
 {
@@ -20,6 +21,10 @@ namespace Mooshak26.Models
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
+        public DbSet<Assignment> Assignments { get; set; }
+        public DbSet<Milestone> Milestones { get; set; }
+        public DbSet<Solutions> Solutions { get; set;}
+
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {
