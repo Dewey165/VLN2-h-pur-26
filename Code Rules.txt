@@ -1,0 +1,26 @@
+Naming Conventions:
+
+Classes and functions will use Pascal casing.
+- First letter in each word is upper case, while the rest are lower case.
+- Class examples: StudentClass, TeacherClass, AdminAccountClass.
+- Function examples: SendSolution, AddUser, EditAssignment.
+
+Variables will use Camel casing.
+- First letter of the first word will always be lower case, while the following words will have the first letter in upper case.
+- Variable example: firstNumber, userString.
+
+Coding Practices:
+
+It is very important that class, function and variable names are descriptive. Better to write a longer name that describes what is happening than not. 
+
+We will endeavour to write classes that have one purpose and functions that do one thing, and therefore it's best to write the name for everything so that it describes it well:
+FunctionThatReadsUserInputAndWritesItOut would be going a bit overboard though.
+
+Why no Hungarian:
+
+We will not be using additional Hungarian notation as extensive research has shown that it might create unncessesary complications and has a significant margin for error. 
+
+This is due to the fact that if Hungarian is used for all variables, we have to decide whether we use Apps or Systems Hungarian and then decide on methods for those. All this could cause problems down the line with 6 people all touching a piece of code.
+
+TL'DR:
+Pascal for for classes and functions, Camel for functions. We don't like Hungarian.
