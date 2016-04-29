@@ -22,5 +22,54 @@ We will not be using additional Hungarian notation as extensive research has sho
 
 This is due to the fact that if Hungarian is used for all variables, we have to decide whether we use Apps or Systems Hungarian and then decide on methods for those. All this could cause problems down the line with 6 people all touching a piece of code.
 
-TL'DR:
-Pascal for for classes and functions, Camel for functions. We don't like Hungarian.
+Whitespace issues:
+
+All code will be indented with a single tab character and each subequent "child" code will be indented with a tab character as well.
+
+Example:
+firstCode
+{
+	secondCode
+	}
+	{
+		thirdCode.
+	}
+
+Loops, if/else statements and all other expressions that inlcude brackets () will have no spaces. If there is a chose between having a space and skipping a space, we will skip the space.
+
+Example: 
+if(Bob == male)
+for(int i = 0; i < 10; i++)
+
+Curly brackets are to be included into every if else or switch statement and the curly braces will always start bellow the 
+declaration, not in the same line.
+We will include curly braces even if it is not strictly required, such as in one line if else statements like seen below.
+
+Example:
+for(int i = 0; i < 10; i++)
+{
+	code code code;
+}
+
+if (Bob == male)
+{
+	Console.Write("Bob is a dude.");
+}
+
+Documentation:
+
+Comments are to be used to describe the document in detail and help the user.
+Single line and multiple line comments are used.
+The top of every page (Controller, View etc.) should have comments to describe what is being done.
+Each class should have comments above it to describe the objects that it handles.
+In the case of 1-2 lines of comments, then single line comments are used. 
+Example:
+
+// This code checks if Bob is male.
+
+Otherwise we will use multiline comments.
+Example:
+
+/* Take me to your leader.
+We will take over your world.
+Because your tasty treats are better than ours. */
