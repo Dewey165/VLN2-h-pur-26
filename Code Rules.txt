@@ -58,4 +58,18 @@ if (Bob == male)
 
 Documentation:
 
-// Yet to write.
+Comments are to be used to describe the document in detail and help the user.
+Single line and multiple line comments are used.
+The top of every page (Controller, View etc.) should have comments to describe what is being done.
+Each class should have comments above it to describe the objects that it handles.
+In the case of 1-2 lines of comments, then single line comments are used. 
+Example:
+
+// This code checks if Bob is male.
+
+Otherwise we will use multiline comments.
+Example:
+
+/* Take me to your leader.
+We will take over your world.
+Because your tasty treats are better than ours. */
