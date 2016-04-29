@@ -4,8 +4,9 @@ CREATE DATABASE hopur26;
 CREATE TABLE users
 (
  id int NOT NULL UNIQUE,
- kennitala int NOT NULL, 
- email varchar(255) NOT NULL,
+ userName varchar(255) NOT NULL UNIQUE,
+ kennitala int NOT NULL UNIQUE, 
+ email varchar(255) NOT NULL UNIQUE,
  role int
 );
 
@@ -13,6 +14,7 @@ CREATE TABLE course
 (
  id int NOT NULL UNIQUE,
  name varchar(255) NOT NULL,
+ title varchar(255) NOT NULL,
  description varchar(255)
 );
 
@@ -34,17 +36,28 @@ CREATE TABLE assignments
 (
  id int NOT NULL UNIQUE,
  courseID int NOT NULL,
- name varchar(255) NOT NULL,
- grade int NOT NULL,
+ title varchar(255) NOT NULL,
+ description varchar(255) NOT NULL,
+ totalGrade int NOT NULL,
  timeSubmitted TIMESTAMP,
  dueDate TIMESTAMP
 );
+
+CREATE TABLE milestone
+{
+ id int NOT NULL UNIQUE,
+ assignmentID int NOT NULL,
+ title varchar(255) NOT NULL,
+ description varchar(255) NOT NULL,
+ grade int NOT NULL
+}
 
 CREATE TABLE solutions
 (
  id int not NULL UNIQUE,
  courseID int NOT NULL, 
- assignID int NOT NULL, 
+ assignID int NOT NULL,
+ milestoneID int NOT NULL, 
  input varchar(255),
  output varchar(255)
 );
@@ -53,7 +66,8 @@ CREATE TABLE submittedSolutions
 (
  id int NOT NULL UNIQUE,
  courseID int NOT NULL, 
- assignID int NOT NULL, 
+ assignID int NOT NULL,
+ milestoneID int NOT NULL, 
  userID int NOT NULL,
  output varchar(255),
  correct boolean
@@ -64,6 +78,7 @@ CREATE TABLE solutionHistory
  id int NOT NULL UNIQUE,
  assignID int NOT NULL,
  courseID int NOT NULL,
+ milestoneID int NOT NULL, 
  userID int NOT NULL,
  grade int NOT NULL
 );
