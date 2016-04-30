@@ -56,13 +56,26 @@ if (Bob == male)
 	Console.Write("Bob is a dude.");
 }
 
+In case of lines of coding being too long in the case of a class, function or otherwise, the bracket will start in the first line, but the text and the second bracket will be in the line below.
+
+Example:
+BobbyTheFunction(
+int myStuff);
+
+Try to void this is possible though.
+
 Documentation:
 
 Comments are to be used to describe the document in detail and help the user.
 Single line and multiple line comments are used.
-The top of every page (Controller, View etc.) should have comments to describe what is being done.
+The top of every page (Controller, View etc.) should have comments to describe what is being done. For this we will use XML Documentation (AKA /// comments) with appropriate XML tags that describe what happens there.
 Each class should have comments above it to describe the objects that it handles.
 In the case of 1-2 lines of comments, then single line comments are used. 
+Example (XML):
+/// <summary>
+/// Page summary goes here.
+/// </summary>
+
 Example:
 
 // This code checks if Bob is male.
