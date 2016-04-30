@@ -5,7 +5,7 @@ using System.Web;
 
 namespace Mooshak26.Models.Entities
 {
-    public class Solutions
+    public class Solution
     {
         public int solutionID { get; set; }
         public int courseID { get; set; }

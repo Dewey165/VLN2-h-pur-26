@@ -9,6 +9,8 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Mooshak26.Models;
+using Mooshak26.Models.Entities;
+using System.Data.SqlClient;
 
 namespace Mooshak26.Controllers
 {
@@ -151,8 +153,31 @@ namespace Mooshak26.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
-                var result = await UserManager.CreateAsync(user, model.Password);
+                // var user = new ApplicationUser { Email = model.Email, Email = model.Email };
+                var getNextId = 0; //TODO get id from db
+                var user = new User
+                {
+                    id = getNextId,
+                    userName = model.userName,
+                    kennitala = model.kennitala,
+                    email = model.Email,
+                    role = model.role
+                };
+
+                string createUser = string.Format(
+                    "INSERT INTO users (userName, kennitala, email, role, password) VALUES (('{0}', {1}, '{2}', {3}, '{4}')",
+                    user.userName, user.kennitala, user.email, user.role);
+
+                var OpenDB = new ApplicationDbContext();
+                SqlCommand saveUser = new SqlCommand(createUser);
+                OpenDB.Users.add(user);
+                /*
+                using (SqlCommand saveUser = new SqlCommand(createUser))
+                {
+                    saveUser.Connection = OpenDB;
+                }
+                
+                    //var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
@@ -167,9 +192,12 @@ namespace Mooshak26.Controllers
                 }
                 AddErrors(result);
             }
-
+            
             // If we got this far, something failed, redisplay form
             return View(model);
+            */
+                return RedirectToAction("Index", "Home");
+            }
         }
 
         //

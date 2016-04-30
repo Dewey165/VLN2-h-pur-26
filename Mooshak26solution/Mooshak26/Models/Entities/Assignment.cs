@@ -14,5 +14,6 @@ namespace Mooshak26.Models.Entities
         public int assignmentID { get; set; }
         public int courseID { get; set; }
         public string title { get; set; }
+        public string description { get; set; }
     }
 }

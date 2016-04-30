@@ -23,7 +23,7 @@ namespace Mooshak26.Models
     {
         public DbSet<Assignment> Assignments { get; set; }
         public DbSet<Milestone> Milestones { get; set; }
-        public DbSet<Solutions> Solutions { get; set;}
+        public DbSet<Solution> Solutions { get; set;}
         public DbSet<Course> Courses { get; set; }
 
         public ApplicationDbContext()

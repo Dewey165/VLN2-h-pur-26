@@ -65,6 +65,19 @@ namespace Mooshak26.Models
     public class RegisterViewModel
     {
         [Required]
+        [Display(Name = "User Name")]
+        public string userName { get; set; }
+
+        [Required]
+        //[StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 10)]
+        [Display(Name = "Kennitala")]
+        public int kennitala { get; set; }
+
+        [Required]
+        [Display(Name = "Role")]
+        public int role { get; set; }
+
+        [Required]
         [EmailAddress]
         [Display(Name = "Email")]
         public string Email { get; set; }
