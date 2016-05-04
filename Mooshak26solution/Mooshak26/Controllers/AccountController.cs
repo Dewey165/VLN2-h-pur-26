@@ -71,7 +71,6 @@ namespace Mooshak26.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Login(LoginViewModel model, string returnUrl)
         {
-            Console.WriteLine(model);
             if (!ModelState.IsValid)
             {
                 return View(model);
@@ -79,9 +78,7 @@ namespace Mooshak26.Controllers
 
             // This doesn't count login failures towards account lockout
             // To enable password failures to trigger account lockout, change to shouldLockout: true
-            Console.WriteLine(model);
             var result = await SignInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, shouldLockout: false);
-            Console.WriteLine(result);
             switch (result)
             {
                 case SignInStatus.Success:
@@ -155,43 +152,15 @@ namespace Mooshak26.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Register(RegisterViewModel model)
         {
-            /*
-            if (ModelState.IsValid)
-            {
-                
-                // var user = new ApplicationUser { Email = model.Email, Email = model.Email };
-                var getNextId = 0; //TODO get id from db
-                var user = new User
-                {
-                    id = getNextId,
-                    userName = model.userName,
-                    kennitala = model.kennitala,
-                    email = model.Email,
-                    role = model.role
-                };
-
-                string createUser = string.Format(
-                    "INSERT INTO users (userName, kennitala, email, role, password) VALUES (('{0}', {1}, '{2}', {3}, '{4}')",
-                    user.userName, user.kennitala, user.email, user.role);
-
-                var OpenDB = new ApplicationDbContext();
-                SqlCommand saveUser = new SqlCommand(createUser);
-                OpenDB.Users.add(user);
-                */
+         
             if (ModelState.IsValid)
                 {
                     var user = new ApplicationUser
                     {
                         UserName = model.userName,
-                        Email = model.Email,
-                        MyUsers = new User
-                        {
-                            userName = model.userName,
-                            kennitala = 1101001234,
-                            email = model.Email,
-                            role = 0
-                        }
+                        Email = model.Email
                     };
+                       
                     var result = await UserManager.CreateAsync(user, model.Password);
                     if (result.Succeeded)
                     {
