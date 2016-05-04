@@ -64,10 +64,11 @@ namespace Mooshak26.Models
 
     public class RegisterViewModel
     {
+        
         [Required]
         [Display(Name = "User Name")]
         public string userName { get; set; }
-
+        /*
         [Required]
         //[StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 10)]
         [Display(Name = "Kennitala")]
@@ -76,7 +77,7 @@ namespace Mooshak26.Models
         [Required]
         [Display(Name = "Role")]
         public int role { get; set; }
-
+        */
         [Required]
         [EmailAddress]
         [Display(Name = "Email")]

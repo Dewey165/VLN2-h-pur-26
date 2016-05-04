@@ -10,6 +10,8 @@ namespace Mooshak26.Models
     // You can add profile data for the user by adding more properties to your ApplicationUser class, please visit http://go.microsoft.com/fwlink/?LinkID=317594 to learn more.
     public class ApplicationUser : IdentityUser
     {
+        public virtual User MyUsers { get; set; }
+
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
         {
             // Note the authenticationType must match the one defined in CookieAuthenticationOptions.AuthenticationType
@@ -25,6 +27,7 @@ namespace Mooshak26.Models
         public DbSet<Milestone> Milestones { get; set; }
         public DbSet<Solution> Solutions { get; set;}
         public DbSet<Course> Courses { get; set; }
+        public DbSet<User> MyUsers { get; set; }
 
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)

@@ -19,6 +19,7 @@ namespace Mooshak26.Controllers
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
+        private ApplicationDbContext _db = new ApplicationDbContext();
 
         public AccountController()
         {
@@ -70,6 +71,7 @@ namespace Mooshak26.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Login(LoginViewModel model, string returnUrl)
         {
+            Console.WriteLine(model);
             if (!ModelState.IsValid)
             {
                 return View(model);
@@ -77,7 +79,9 @@ namespace Mooshak26.Controllers
 
             // This doesn't count login failures towards account lockout
             // To enable password failures to trigger account lockout, change to shouldLockout: true
+            Console.WriteLine(model);
             var result = await SignInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, shouldLockout: false);
+            Console.WriteLine(result);
             switch (result)
             {
                 case SignInStatus.Success:
@@ -151,8 +155,10 @@ namespace Mooshak26.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Register(RegisterViewModel model)
         {
+            /*
             if (ModelState.IsValid)
             {
+                
                 // var user = new ApplicationUser { Email = model.Email, Email = model.Email };
                 var getNextId = 0; //TODO get id from db
                 var user = new User
@@ -171,34 +177,43 @@ namespace Mooshak26.Controllers
                 var OpenDB = new ApplicationDbContext();
                 SqlCommand saveUser = new SqlCommand(createUser);
                 OpenDB.Users.add(user);
-                /*
-                using (SqlCommand saveUser = new SqlCommand(createUser))
+                */
+            if (ModelState.IsValid)
                 {
-                    saveUser.Connection = OpenDB;
-                }
-                
-                    //var result = await UserManager.CreateAsync(user, model.Password);
-                if (result.Succeeded)
-                {
-                    await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
-                    
+                    var user = new ApplicationUser
+                    {
+                        UserName = model.userName,
+                        Email = model.Email,
+                        MyUsers = new User
+                        {
+                            userName = model.userName,
+                            kennitala = 1101001234,
+                            email = model.Email,
+                            role = 0
+                        }
+                    };
+                    var result = await UserManager.CreateAsync(user, model.Password);
+                    if (result.Succeeded)
+                    {
+                        await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
+
                     // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
                     // Send an email with this link
                     // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
                     // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
                     // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
 
-                    return RedirectToAction("Index", "Home");
+                    //Here we want to create the user instance...\
+               
+                        return RedirectToAction("Index", "Home");
+                    }
+                    AddErrors(result);
                 }
-                AddErrors(result);
+                
+                // If we got this far, something failed, redisplay form
+                return View(model);
+
             }
-            
-            // If we got this far, something failed, redisplay form
-            return View(model);
-            */
-                return RedirectToAction("Index", "Home");
-            }
-        }
 
         //
         // GET: /Account/ConfirmEmail

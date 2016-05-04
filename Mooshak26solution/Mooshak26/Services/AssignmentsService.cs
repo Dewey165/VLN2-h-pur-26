@@ -10,6 +10,7 @@ namespace Mooshak26.Services
     public class AssignmentsService
     {
         private ApplicationDbContext _db;
+
         public AssignmentsService()
         {
             _db = new ApplicationDbContext();

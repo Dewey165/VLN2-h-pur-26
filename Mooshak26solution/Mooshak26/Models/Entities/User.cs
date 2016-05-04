@@ -12,5 +12,6 @@ namespace Mooshak26.Models.Entities
         public int kennitala { get; set; }
         public string email { get; set; }
         public int role { get; set; }
-}
+
+    }
 }

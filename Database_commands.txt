@@ -10,31 +10,24 @@ CREATE TABLE users
  role int
 );
 
-CREATE TABLE course
+CREATE TABLE courses
 (
  id int NOT NULL UNIQUE,
- name varchar(255) NOT NULL,
+ title varchar(255) NOT NULL,
  description varchar(255)
 );
 
 CREATE TABLE courseManager
 (
- userID int,
- courseID int,
- role int
-);
-
-CREATE TABLE assignmentManager
-(
- assignmentID int,
- userID int,
+ FOREIGN KEY (userID) REFERENCES users(id),
+ FOREIGN KEY (courseID) REFERENCES coures(id),
  role int
 );
 
 CREATE TABLE assignments
 (
  id int NOT NULL UNIQUE,
- courseID int NOT NULL,
+ FOREIGN KEY (courseID) REFERENCES coures(id),
  title varchar(255) NOT NULL,
  description varchar(255) NOT NULL,
  totalGrade int NOT NULL,
@@ -42,10 +35,17 @@ CREATE TABLE assignments
  dueDate TIMESTAMP
 );
 
-CREATE TABLE milestone
+CREATE TABLE milestoneManager ??
+(
+ FOREIGN KEY (assignmentID) REFERENCES assignments(id),
+ FOREIGN KEY (userID) REFERENCES users(id),
+ role int
+);
+
+CREATE TABLE milestones
 {
  id int NOT NULL UNIQUE,
- assignmentID int NOT NULL,
+ FOREIGN KEY (assignmentID) REFERENCES assignments(id),
  title varchar(255) NOT NULL,
  description varchar(255) NOT NULL,
  grade int NOT NULL
@@ -54,9 +54,9 @@ CREATE TABLE milestone
 CREATE TABLE solutions
 (
  id int not NULL UNIQUE,
- courseID int NOT NULL, 
- assignID int NOT NULL,
- milestoneID int NOT NULL, 
+ FOREIGN KEY (courseID) REFERENCES courses(id), 
+ FOREIGN KEY (assignmentID) REFERENCES assignments(id),
+ FOREIGN KEY (milestoneID) REFERENCES milestones(id),
  input varchar(255),
  output varchar(255)
 );
@@ -64,20 +64,22 @@ CREATE TABLE solutions
 CREATE TABLE submittedSolutions
 (
  id int NOT NULL UNIQUE,
- courseID int NOT NULL, 
- assignID int NOT NULL,
- milestoneID int NOT NULL, 
- userID int NOT NULL,
+ FOREIGN KEY (courseID) REFERENCES courses(id),  
+ FOREIGN KEY (assignmentID) REFERENCES assignments(id),
+ FOREIGN KEY (milestoneID) REFERENCES milestones(id), 
+ FOREIGN KEY (userID) REFERENCES users(id),
+ FOREIGN KEY (input) REFERENCES solutions(input),
  output varchar(255),
- correct boolean
+ correct boolean,
+ timeSubmitted TIMESTAMP
  );
  
 CREATE TABLE solutionHistory
 (
  id int NOT NULL UNIQUE,
- assignID int NOT NULL,
- courseID int NOT NULL,
- milestoneID int NOT NULL, 
- userID int NOT NULL,
+ FOREIGN KEY (assignmentID) REFERENCES assignments(id),
+ FOREIGN KEY (courseID) REFERENCES courses(id), 
+ FOREIGN KEY (milestoneID) REFERENCES milestones(id), 
+ FOREIGN KEY (userID) REFERENCES users(id),
  grade int NOT NULL
 );

@@ -20,5 +20,6 @@ namespace Mooshak26.Models.Entities
         public string input { get; set; }
         public string output { get; set; }
         public bool correct { get; set; }
+        public DateTime timeSubmitted { get; set; }
     }
 }

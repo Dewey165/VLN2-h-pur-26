@@ -15,5 +15,8 @@ namespace Mooshak26.Models.Entities
         public int courseID { get; set; }
         public string title { get; set; }
         public string description { get; set; }
+        public int totalGrade { get; set; }
+        public DateTime timeSubmitted { get; set; }
+        public DateTime dueDate { get; set; }
     }
 }
