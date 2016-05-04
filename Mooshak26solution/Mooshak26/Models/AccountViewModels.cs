@@ -49,9 +49,8 @@ namespace Mooshak26.Models
     public class LoginViewModel
     {
         [Required]
-        [Display(Name = "Email")]
-        [EmailAddress]
-        public string Email { get; set; }
+        [Display(Name = "Username")]
+        public string userName { get; set; }
 
         [Required]
         [DataType(DataType.Password)]
