@@ -13,16 +13,20 @@ namespace Mooshak26.Controllers
             return View();
         }
 
-        public ActionResult About()
+        public ActionResult AdminMainPage()
         {
-            ViewBag.Message = "Your application description page.";
+           
+            return View();
+        }
+
+        public ActionResult StudentMainPage()
+        {
 
             return View();
         }
 
-        public ActionResult Contact()
+        public ActionResult TeacherMainPage()
         {
-            ViewBag.Message = "Your contact page.";
 
             return View();
         }

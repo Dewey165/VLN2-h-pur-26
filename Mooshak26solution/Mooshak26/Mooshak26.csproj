@@ -287,6 +287,9 @@
     <Content Include="Views\Courses\Details.cshtml" />
     <Content Include="Views\Courses\Edit.cshtml" />
     <Content Include="Views\Courses\Index.cshtml" />
+    <Content Include="Views\Home\AdminMainPage.cshtml" />
+    <Content Include="Views\Home\StudentMainPage.cshtml" />
+    <Content Include="Views\Home\TeacherMainPage.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
