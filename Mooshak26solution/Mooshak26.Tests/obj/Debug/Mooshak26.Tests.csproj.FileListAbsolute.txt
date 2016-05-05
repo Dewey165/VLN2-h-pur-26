@@ -1,4 +1,3 @@
-C:\Users\GodDewey\Desktop\VLN2\VLN2-hopur-26\Mooshak26solution\Mooshak26.Tests\obj\Debug\Mooshak26.Tests.csprojResolveAssemblyReference.cache
 C:\Users\GodDewey\Desktop\VLN2\VLN2-hopur-26\Mooshak26solution\Mooshak26.Tests\bin\Debug\ApplicationInsights.config
 C:\Users\GodDewey\Desktop\VLN2\VLN2-hopur-26\Mooshak26solution\Mooshak26.Tests\bin\Debug\roslyn\csc.exe
 C:\Users\GodDewey\Desktop\VLN2\VLN2-hopur-26\Mooshak26solution\Mooshak26.Tests\bin\Debug\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
@@ -52,5 +51,6 @@ C:\Users\GodDewey\Desktop\VLN2\VLN2-hopur-26\Mooshak26solution\Mooshak26.Tests\b
 C:\Users\GodDewey\Desktop\VLN2\VLN2-hopur-26\Mooshak26solution\Mooshak26.Tests\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
 C:\Users\GodDewey\Desktop\VLN2\VLN2-hopur-26\Mooshak26solution\Mooshak26.Tests\bin\Debug\EntityFramework.xml
 C:\Users\GodDewey\Desktop\VLN2\VLN2-hopur-26\Mooshak26solution\Mooshak26.Tests\bin\Debug\Microsoft.Owin.Host.SystemWeb.xml
+C:\Users\GodDewey\Desktop\VLN2\VLN2-hopur-26\Mooshak26solution\Mooshak26.Tests\obj\Debug\Mooshak26.Tests.csprojResolveAssemblyReference.cache
 C:\Users\GodDewey\Desktop\VLN2\VLN2-hopur-26\Mooshak26solution\Mooshak26.Tests\obj\Debug\Mooshak26.Tests.dll
 C:\Users\GodDewey\Desktop\VLN2\VLN2-hopur-26\Mooshak26solution\Mooshak26.Tests\obj\Debug\Mooshak26.Tests.pdb

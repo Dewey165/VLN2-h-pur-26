@@ -27,7 +27,7 @@ namespace Mooshak26.Models
         public DbSet<Milestone> Milestones { get; set; }
         public DbSet<Solution> Solutions { get; set;}
         public DbSet<Course> courses { get; set; }
-       // public DbSet<User> MyUsers { get; set; }
+        public DbSet<User> MyUsers { get; set; }
 
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)

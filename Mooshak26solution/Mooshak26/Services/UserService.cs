@@ -1,5 +1,7 @@
-﻿using Mooshak26.Models;
-using Mooshak26.Models.ViewModels;
+﻿using Microsoft.AspNet.Identity;
+using Mooshak26;
+using Mooshak26.Models;
+using Mooshak26.Models.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,9 +17,17 @@ namespace Mooshak26.Services
         {
             _db = new ApplicationDbContext();
         }
-        public UserViewModel CreateUser(UserViewModel newUser)
+
+        public List<User> GetUsers()
         {
-            return null;
+            return _db.MyUsers.ToList();
+        }
+
+        public Boolean CreateUser(User user)
+        {
+            _db.MyUsers.Add(user);
+            _db.SaveChanges();
+            return true;
         }
     }
 }

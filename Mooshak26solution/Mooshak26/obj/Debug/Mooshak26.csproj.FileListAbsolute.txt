@@ -1,4 +1,3 @@
-C:\Users\GodDewey\Desktop\VLN2\VLN2-hopur-26\Mooshak26solution\Mooshak26\obj\Debug\Mooshak26.csprojResolveAssemblyReference.cache
 C:\Users\GodDewey\Desktop\VLN2\VLN2-hopur-26\Mooshak26solution\Mooshak26\bin\ApplicationInsights.config
 C:\Users\GodDewey\Desktop\VLN2\VLN2-hopur-26\Mooshak26solution\Mooshak26\bin\roslyn\csc.exe
 C:\Users\GodDewey\Desktop\VLN2\VLN2-hopur-26\Mooshak26solution\Mooshak26\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll

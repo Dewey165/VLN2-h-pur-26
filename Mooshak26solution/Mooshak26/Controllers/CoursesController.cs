@@ -8,17 +8,19 @@ using System.Web;
 using System.Web.Mvc;
 using Mooshak26.Models;
 using Mooshak26.Models.Entities;
+using Mooshak26.Services;
 
 namespace Mooshak26.Controllers
 {
     public class CoursesController : Controller
     {
-        private ApplicationDbContext db = new ApplicationDbContext();
+       // private ApplicationDbContext db = new ApplicationDbContext();
+        private CourseService _service = new CourseService();
 
         // GET: Courses
         public ActionResult Index()
         {
-            return View(db.courses.ToList());
+            return View(_service.GetCourses());
         }
 
         // GET: Courses/Details/5
@@ -28,7 +30,8 @@ namespace Mooshak26.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Course course = db.courses.Find(id);
+            //Get course details through the CourseService...
+            Course course = _service.CourseDetails(id);
             if (course == null)
             {
                 return HttpNotFound();
@@ -51,11 +54,11 @@ namespace Mooshak26.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.courses.Add(course);
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                if (_service.CreateCourse(course))
+                {
+                    return RedirectToAction("Index");
+                }
             }
-
             return View(course);
         }
 
@@ -66,7 +69,7 @@ namespace Mooshak26.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Course course = db.courses.Find(id);
+            Course course = _service.CourseDetails(id);
             if (course == null)
             {
                 return HttpNotFound();
@@ -83,9 +86,10 @@ namespace Mooshak26.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(course).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                if (_service.EditCourse(course))
+                {
+                    return RedirectToAction("Index");
+                }
             }
             return View(course);
         }
@@ -97,7 +101,7 @@ namespace Mooshak26.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Course course = db.courses.Find(id);
+            Course course = _service.CourseDetails(id);
             if (course == null)
             {
                 return HttpNotFound();
@@ -110,17 +114,20 @@ namespace Mooshak26.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Course course = db.courses.Find(id);
-            db.courses.Remove(course);
-            db.SaveChanges();
-            return RedirectToAction("Index");
+            Course course = _service.CourseDetails(id);
+            if (_service.DeleteCourse(course))
+            {
+                return RedirectToAction("Index");
+            }
+            //Here should be an error page..
+            return HttpNotFound();
         }
 
         protected override void Dispose(bool disposing)
         {
             if (disposing)
             {
-                db.Dispose();
+                //db.Dispose();
             }
             base.Dispose(disposing);
         }

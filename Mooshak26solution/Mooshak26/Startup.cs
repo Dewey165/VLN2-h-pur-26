@@ -21,7 +21,7 @@ namespace Mooshak26
             var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(_db));
             var UserManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(_db));
 
-            //In startup we want to have 3 roles "Admin, Teacher and Student" and creating a default Admin
+            // In startup we want to have 3 roles "Admin, Teacher and Student" and creating a default Admin
             // Tutorial here http://social.technet.microsoft.com/wiki/contents/articles/33229.asp-net-mvc-5-security-and-creating-user-role.aspx 
 
             if (!roleManager.RoleExists("Admin"))
@@ -57,7 +57,7 @@ namespace Mooshak26
             // creating Creating Employee role   
             if (!roleManager.RoleExists("Student"))  
             {  
-                var role = new Microsoft.AspNet.Identity.EntityFramework.IdentityRole();
+                var role = new IdentityRole();
                 role.Name = "Student";  
                 roleManager.Create(role);  
             }  
