@@ -289,17 +289,15 @@
     <Content Include="Views\Courses\Details.cshtml" />
     <Content Include="Views\Courses\Edit.cshtml" />
     <Content Include="Views\Courses\Index.cshtml" />
-<<<<<<< HEAD
     <Content Include="Views\Users\Create.cshtml" />
     <Content Include="Views\Users\Delete.cshtml" />
     <Content Include="Views\Users\Details.cshtml" />
     <Content Include="Views\Users\Edit.cshtml" />
     <Content Include="Views\Users\Index.cshtml" />
-=======
     <Content Include="Views\Home\AdminMainPage.cshtml" />
     <Content Include="Views\Home\StudentMainPage.cshtml" />
     <Content Include="Views\Home\TeacherMainPage.cshtml" />
->>>>>>> baebafbe28f2748bcab10d96d50e78b66f019cdf
+
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

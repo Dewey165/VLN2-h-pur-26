@@ -23,21 +23,9 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-<<<<<<< HEAD
                     <li>@Html.ActionLink("Courses", "Index", "Courses")</li>
-                    <li>@Html.ActionLink("Assignment", "Index", "Assignment")</li>
+                    <li>@Html.ActionLink("Assignment", "Index", "Assignments")</li>
                     <li>@Html.ActionLink("Users", "Index", "Users")</li>
-=======
-                    <li>@Html.ActionLink("StudentMainPage", "StudentMainPage", "Home")</li>
-                    <li>@Html.ActionLink("AdminMainPage", "AdminMainPage", "Home")</li>
-                    <li>@Html.ActionLink("TeacherMainPage", "TeacherMainPage", "Home")</li>
-                    <li>
-                        @if (Request.IsAuthenticated)
-                        {
-                            @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "ExternalLoginConfirmation", "Account", routeValues: null, htmlAttributes: new { title = "Account" })
-                        }
-                    </li>
->>>>>>> baebafbe28f2748bcab10d96d50e78b66f019cdf
                 </ul>
             </div>
         </div>
