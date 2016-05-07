@@ -8,12 +8,14 @@ using System.Web;
 using System.Web.Mvc;
 using Mooshak26.Models;
 using Mooshak26.Models.Entities;
+using Mooshak26.Services;
 
 namespace Mooshak26.Controllers
 {
     public class AssignmentsController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
+        private AssignmentsService _service = new AssignmentsService();
 
         // GET: Assignments
         public ActionResult Index()
@@ -39,6 +41,7 @@ namespace Mooshak26.Controllers
         // GET: Assignments/Create
         public ActionResult Create()
         {
+            ViewBag.Courses = _service.GetAllCourseTitles();
             return View();
         }
 

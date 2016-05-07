@@ -145,7 +145,7 @@ namespace Mooshak26.Controllers
                 updatedUser.Email = user.email;
                 await UserManager.UpdateAsync(updatedUser);
                 */
-                _service.EditUser(user);
+                //_service.EditUser(user);
                 return RedirectToAction("Index");
            }
             

@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace Mooshak26.Services
 {
@@ -14,6 +15,14 @@ namespace Mooshak26.Services
         public AssignmentsService()
         {
             _db = new ApplicationDbContext();
+        }
+
+        public SelectList GetAllCourseTitles()
+        {
+            var list = new SelectList(
+                _db.courses.ToList(), "id", "title");
+
+            return list;
         }
 
         public List<AssignmentViewModel> GetAssignmentsInCourse(int courseID)

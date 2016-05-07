@@ -29,7 +29,7 @@ namespace Mooshak26.Services
               
         public SelectList GetAllCourseTitles()
         {
-            //List <Link> courses = GetLinks();
+            
             var list = new SelectList(
                 _db.courses.ToList(),"id", "title");
 
@@ -44,5 +44,18 @@ namespace Mooshak26.Services
                 .ToList(), "id", "userName");
             return list;
         }
+        /*
+        public List<Course> GetCourses(int userID)
+        {
+            var courseName = _db.Links.Where(u => u.userID == userID).ToList();
+            List<Course> result = new List<Course>();
+            for (int i = 0; i < courseName.Capacity; i++)
+            {
+                result.
+                    Add(getCourseByID(courseName.ElementAt(i).courseID));
+            }
+            return result;
+        }
+        */
     }
 }
