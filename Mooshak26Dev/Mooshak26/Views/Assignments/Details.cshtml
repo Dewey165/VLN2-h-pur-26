@@ -1,0 +1,66 @@
+﻿@model Mooshak26.Models.Entities.Assignment
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Assignment</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.courseID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.courseID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.totalGrade)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.totalGrade)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.timeSubmitted)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.timeSubmitted)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.dueDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dueDate)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
